@@ -246,12 +246,11 @@ export function createBaseQuery<
         }
         obs.updateResult()
 
-        if (
-          observerResult.isError &&
+        if (observerResult.isError &&
           !observerResult.isFetching &&
           !isRestoring() &&
           shouldThrowError(obs.options.throwOnError, [
-            observerResult.error,
+            observerResult.error!,
             obs.getCurrentQuery(),
           ])
         ) {
